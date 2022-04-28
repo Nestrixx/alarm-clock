@@ -3,8 +3,7 @@ import "./App.css";
 import BackgroundVideo from "./BackgroundVideo.mp4";
 import WakeUp from "./WakeUp.mp4";
 import { useState } from "react";
-import { addMinutes } from "date-fns";
-import { setSeconds } from "date-fns";
+import { addMinutes, isWithinInterval } from "date-fns";
 import { differenceInMinutes } from "date-fns";
 
 function App() {
@@ -46,10 +45,10 @@ function App() {
 
     if (
       alarmTime !== "" &&
-      differenceInMinutes(
-        setSeconds(alarmEndTime, 1),
-        setSeconds(currentDate, 1)
-      ) === 30
+      isWithinInterval(currentDate, {
+        start: alarmTimeFullDate,
+        end: alarmEndTime,
+      })
     ) {
       console.log("it is time");
       return (

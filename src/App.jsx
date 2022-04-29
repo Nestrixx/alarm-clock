@@ -1,8 +1,8 @@
 import "./App.css";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
 import Alarm from "./Alarm";
+import Home from "./Home.tsx";
 
 function App() {
   return (

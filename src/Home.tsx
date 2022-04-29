@@ -32,7 +32,6 @@ const Home = () => {
   const isAlarmTime = () => {
     //these two lines give us our current time date to check in the if statement
     const currentDate = new Date();
-
     //these three lines of code give us the end time of our alarm for the if statement
     const currentAlarmTime = new Date();
     const alarmTimeFullDate = new Date(

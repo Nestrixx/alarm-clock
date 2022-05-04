@@ -6,13 +6,13 @@ import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
 import JapaneseLake from "./assets/JapaneseLake.mp4";
 import RamenStall from "./assets/RamenStall.mp4";
 import { useState } from "react";
-import { addMinutes, isWithinInterval } from "date-fns";
-import { differenceInMinutes } from "date-fns";
+import { addMinutes, isWithinInterval, format } from "date-fns";
 import "./Home.css";
 
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [alarmTime, setAlarmTime] = useState("");
+  const [pendingAlarmTime, setPendingAlarmTime] = useState("");
 
   const backgroundVideos = [
     BackgroundVideo,
@@ -30,41 +30,19 @@ const Home = () => {
     setTime(localeTime);
   };
 
-  // this needs to be deleted and moved to the return code.
-  const alarmClock = () => {
-    return (
-      <video className="BGVideo" autoPlay muted loop id="backgroundVideo">
-        <source
-          src={
-            backgroundVideos[
-              Math.floor(Math.random() * backgroundVideos.length)
-            ]
-          }
-          type="video/mp4"
-        />
-      </video>
-    );
-  };
-
   const isAlarmTime = () => {
-    //these two lines give us our current time date to check in the if statement
+    const alarmTimeDate = new Date(alarmTime);
+    const alarmEndTime = addMinutes(alarmTimeDate, 30);
+
     const currentDate = new Date();
-    //these three lines of code give us the end time of our alarm for the if statement
-    const currentAlarmTime = new Date();
-    const alarmTimeFullDate = new Date(
-      currentAlarmTime.toDateString() + " " + alarmTime
-    );
-    const alarmEndTime = addMinutes(alarmTimeFullDate, 30);
-    console.log(differenceInMinutes(alarmEndTime, currentDate));
 
     if (
       alarmTime !== "" &&
       isWithinInterval(currentDate, {
-        start: alarmTimeFullDate,
+        start: alarmTimeDate,
         end: alarmEndTime,
       })
     ) {
-      console.log("it is time");
       return (
         <div>
           <iframe
@@ -76,31 +54,28 @@ const Home = () => {
             allowFullScreen
           ></iframe>
         </div>
-        // <video muted autoPlay loop id="wakeUp">
-        //   <source src={WakeUp} type="video/mp4" />
-        // </video>
       );
     }
     return null;
   };
 
-  const alarmInputHandler = () => {
-    //these three lines of code give us the end time of our alarm for the if statement
-    const currentAlarmTime = new Date();
-    const alarmTimeFullDate = new Date(
-      currentAlarmTime.toDateString() + " " + alarmTime
-    );
-    const alarmEndTime = addMinutes(alarmTimeFullDate, 30);
-
-    console.log(alarmTimeFullDate);
-    console.log(currentAlarmTime);
-    console.log(alarmEndTime);
-  };
+  // const alarmInputHandler = () => {
+  //   // this only is here cause the button has a onClick function call to it but if it didn't we wouldn't need this function
+  // };
 
   setInterval(updateTime, 1000);
   return (
     <div className="App">
-      {alarmClock()}
+      <video className="BGVideo" autoPlay muted loop id="backgroundVideo">
+        <source
+          src={
+            backgroundVideos[
+              Math.floor(Math.random() * backgroundVideos.length)
+            ]
+          }
+          type="video/mp4"
+        />
+      </video>
       {isAlarmTime()}
       <div className="time">{time}</div>
       <p>What Are The Words That Changed Your Life?</p>
@@ -108,11 +83,12 @@ const Home = () => {
         Enter Alarm
         <input
           className="timeInput"
-          onChange={(e) => setAlarmTime(e.target.value)}
-          type="time"
+          onChange={(e) => setPendingAlarmTime(e.target.value)}
+          type="datetime-local"
+          min={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
         ></input>
       </label>
-      <button onClick={alarmInputHandler}>submit</button>
+      <button onClick={() => setAlarmTime(pendingAlarmTime)}>submit</button>
     </div>
   );
 };

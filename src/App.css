@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Water+Brush&display=swap");
 .App {
   text-align: center;
   color: white;
   font-size: 4rem;
   text-shadow: 3px 3px black;
+  font-family: "Water Brush", cursive;
 }
 
 .App-logo {

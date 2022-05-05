@@ -88,7 +88,12 @@ const Home = () => {
           min={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
         ></input>
       </label>
-      <button onClick={() => setAlarmTime(pendingAlarmTime)}>submit</button>
+      <button
+        className="submit-button"
+        onClick={() => setAlarmTime(pendingAlarmTime)}
+      >
+        submit
+      </button>
     </div>
   );
 };

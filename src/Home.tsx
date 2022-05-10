@@ -1,13 +1,17 @@
 import BackgroundVideo from "./assets/BackgroundVideo.mp4";
 import CherryBG from "./assets/CherryBG.mp4";
 import ShoreBG from "./assets/ShoreBG.mp4";
-import VinlandBG from "./assets/VinlandBG.mp4";
 import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
 import JapaneseLake from "./assets/JapaneseLake.mp4";
 import RamenStall from "./assets/RamenStall.mp4";
+import Ocean from "./assets/Ocean.mp4";
+import aurora from "./assets/aurora.mp4";
+import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
+import LakeHouse from "./assets/LakeHouse.mp4";
 import { useState } from "react";
 import { addMinutes, isWithinInterval, format } from "date-fns";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -18,11 +22,42 @@ const Home = () => {
     BackgroundVideo,
     CherryBG,
     ShoreBG,
-    VinlandBG,
     SpaceCowboyBG,
     JapaneseLake,
     RamenStall,
+    Ocean,
+    aurora,
+    WaterSceneAzuma,
+    LakeHouse,
   ];
+
+  const getRandomRange = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  const getBackgroundVideo = () => {
+    const randomExcludedIndex = (
+      min: number,
+      max: number,
+      excluded: number
+    ) => {
+      let n = getRandomRange(min, max);
+      if (n >= excluded) n++;
+      return n;
+    };
+
+    const currentVideoIndex = backgroundVideos.findIndex(
+      (backgroundVideo) => backgroundVideo === backgroundSource
+    );
+
+    return backgroundVideos[
+      randomExcludedIndex(0, backgroundVideos.length - 1, currentVideoIndex)
+    ];
+  };
+
+  const [backgroundSource, setBackgroundSource] = useState(
+    backgroundVideos[getRandomRange(0, backgroundVideos.length - 1)]
+  );
 
   const updateTime = () => {
     const localeTime = new Date().toLocaleTimeString();
@@ -66,21 +101,25 @@ const Home = () => {
   setInterval(updateTime, 1000);
   return (
     <div className="App">
-      <video className="BGVideo" autoPlay muted loop id="backgroundVideo">
-        <source
-          src={
-            backgroundVideos[
-              Math.floor(Math.random() * backgroundVideos.length)
-            ]
-          }
-          type="video/mp4"
-        />
+      <video
+        key={backgroundSource}
+        className="BGVideo"
+        autoPlay
+        muted
+        id="backgroundVideo"
+        onEnded={() => {
+          setBackgroundSource(getBackgroundVideo());
+        }}
+      >
+        <source src={backgroundSource} type="video/mp4" />
       </video>
       {isAlarmTime()}
       <div className="time">{time}</div>
-      <p>What Are The Words That Changed Your Life?</p>
+      <p>Tell Me, What Are The Words That Changed Your Life?</p>
+      <Link to="/alarms">Alarms List</Link>
       <label>
-        Enter Alarm
+        Enter Alarms
+        <br></br>
         <input
           className="timeInput"
           onChange={(e) => setPendingAlarmTime(e.target.value)}

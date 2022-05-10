@@ -1,15 +1,15 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Alarm from "./Alarm";
 import Home from "./Home.tsx";
+import AlarmList from "./AlarmList.tsx";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" exact element={<Home />}></Route>
-        <Route path="/alarm" element={<Alarm />}></Route>
+        <Route path="/alarms" element={<AlarmList />}></Route>
       </Routes>
     </Router>
   );

@@ -1,4 +1,12 @@
 .monica {
-    color: green;
-    font-size: 6rem;
+    background-color: #2f3136;
+    height: 100vh;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.time-button-wrapper {}
+
+.alarms-submit-button {}

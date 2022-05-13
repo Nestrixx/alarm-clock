@@ -4,11 +4,11 @@ import ShoreBG from "./assets/ShoreBG.mp4";
 import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
 import JapaneseLake from "./assets/JapaneseLake.mp4";
 import RamenStall from "./assets/RamenStall.mp4";
-import Ocean from "./assets/Ocean.mp4";
+import Ocean from "./assets/Ocean.webm";
 import aurora from "./assets/aurora.mp4";
 import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
 import LakeHouse from "./assets/LakeHouse.mp4";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addMinutes, isWithinInterval, format } from "date-fns";
 import "./Home.css";
 import { Link } from "react-router-dom";
@@ -94,11 +94,13 @@ const Home = () => {
     return null;
   };
 
-  // const alarmInputHandler = () => {
-  //   // this only is here cause the button has a onClick function call to it but if it didn't we wouldn't need this function
-  // };
+  useEffect(() => {
+    const interval = setInterval(updateTime, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
-  setInterval(updateTime, 1000);
   return (
     <div className="App">
       <video
@@ -116,23 +118,25 @@ const Home = () => {
       {isAlarmTime()}
       <div className="time">{time}</div>
       <p>Tell Me, What Are The Words That Changed Your Life?</p>
-      <Link to="/alarms">Alarms List</Link>
-      <label>
+      <Link to="/alarms" className="alarmsLink">
         Enter Alarms
-        <br></br>
-        <input
-          className="timeInput"
-          onChange={(e) => setPendingAlarmTime(e.target.value)}
-          type="datetime-local"
-          min={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
-        ></input>
-      </label>
-      <button
-        className="submit-button"
-        onClick={() => setAlarmTime(pendingAlarmTime)}
-      >
-        submit
-      </button>
+      </Link>
+      <div className="alarmWrapper">
+        <label>
+          <input
+            className="timeInput"
+            onChange={(e) => setPendingAlarmTime(e.target.value)}
+            type="datetime-local"
+            min={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
+          />
+        </label>
+        <button
+          className="submit-button"
+          onClick={() => setAlarmTime(pendingAlarmTime)}
+        >
+          submit
+        </button>
+      </div>
     </div>
   );
 };

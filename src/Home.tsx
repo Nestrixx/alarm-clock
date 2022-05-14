@@ -8,15 +8,16 @@ import Ocean from "./assets/Ocean.webm";
 import aurora from "./assets/aurora.mp4";
 import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
 import LakeHouse from "./assets/LakeHouse.mp4";
-import { useState, useEffect } from "react";
-import { addMinutes, isWithinInterval, format } from "date-fns";
+import { useState, useEffect, useContext } from "react";
+import { addMinutes, isWithinInterval } from "date-fns";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { TimeContext } from "./TimeContext.js";
+import { AlarmContext } from "./types/AlarmContext";
 
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
-  const [alarmTime, setAlarmTime] = useState("");
-  const [pendingAlarmTime, setPendingAlarmTime] = useState("");
+  const { alarms }: AlarmContext = useContext(TimeContext);
 
   const backgroundVideos = [
     BackgroundVideo,
@@ -66,13 +67,13 @@ const Home = () => {
   };
 
   const isAlarmTime = () => {
-    const alarmTimeDate = new Date(alarmTime);
+    const alarmTimeDate = new Date(alarms[0].alarm);
     const alarmEndTime = addMinutes(alarmTimeDate, 30);
 
     const currentDate = new Date();
 
     if (
-      alarmTime !== "" &&
+      alarms[0].alarm !== "" &&
       isWithinInterval(currentDate, {
         start: alarmTimeDate,
         end: alarmEndTime,
@@ -115,28 +116,12 @@ const Home = () => {
       >
         <source src={backgroundSource} type="video/mp4" />
       </video>
-      {isAlarmTime()}
+      {alarms.length !== 0 ? isAlarmTime() : null}
       <div className="time">{time}</div>
       <p>Tell Me, What Are The Words That Changed Your Life?</p>
       <Link to="/alarms" className="alarmsLink">
         Enter Alarms
       </Link>
-      <div className="alarmWrapper">
-        <label>
-          <input
-            className="timeInput"
-            onChange={(e) => setPendingAlarmTime(e.target.value)}
-            type="datetime-local"
-            min={format(new Date(), "yyyy-MM-dd'T'HH:mm")}
-          />
-        </label>
-        <button
-          className="submit-button"
-          onClick={() => setAlarmTime(pendingAlarmTime)}
-        >
-          submit
-        </button>
-      </div>
     </div>
   );
 };

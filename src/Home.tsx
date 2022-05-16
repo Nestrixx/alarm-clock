@@ -4,10 +4,10 @@ import ShoreBG from "./assets/ShoreBG.mp4";
 import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
 import JapaneseLake from "./assets/JapaneseLake.mp4";
 import RamenStall from "./assets/RamenStall.mp4";
-import Ocean from "./assets/Ocean.webm";
-import aurora from "./assets/aurora.mp4";
-import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
-import LakeHouse from "./assets/LakeHouse.mp4";
+// import Ocean from "./assets/Ocean.webm";
+// import aurora from "./assets/aurora.mp4";
+// import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
+// import LakeHouse from "./assets/LakeHouse.mp4";
 import { useState, useEffect, useContext } from "react";
 import { addMinutes, isWithinInterval } from "date-fns";
 import "./Home.css";
@@ -26,10 +26,10 @@ const Home = () => {
     SpaceCowboyBG,
     JapaneseLake,
     RamenStall,
-    Ocean,
-    aurora,
-    WaterSceneAzuma,
-    LakeHouse,
+    // Ocean,
+    // aurora,
+    // WaterSceneAzuma,
+    // LakeHouse,
   ];
 
   const getRandomRange = (min: number, max: number) => {

@@ -84,7 +84,7 @@ const Home = () => {
         <div>
           <iframe
             className="lofiVideo"
-            src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0"
+            src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0&html5=1"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

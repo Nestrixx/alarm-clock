@@ -1,15 +1,21 @@
 {
   "files": {
     "main.css": "/alarm-clock/static/css/main.245e332b.css",
-    "main.js": "/alarm-clock/static/js/main.fea07668.js",
+    "main.js": "/alarm-clock/static/js/main.7a118d38.js",
     "static/js/787.3de48938.chunk.js": "/alarm-clock/static/js/787.3de48938.chunk.js",
+    "static/media/BackgroundVideo.mp4": "/alarm-clock/static/media/BackgroundVideo.0d852f4d4fecae7c0504.mp4",
+    "static/media/SpaceCowboyBG.mp4": "/alarm-clock/static/media/SpaceCowboyBG.1ee4224c4a81a377cb29.mp4",
+    "static/media/ShoreBG.mp4": "/alarm-clock/static/media/ShoreBG.e8cfa1e713492058f714.mp4",
+    "static/media/CherryBG.mp4": "/alarm-clock/static/media/CherryBG.3972c598b8098d16b194.mp4",
+    "static/media/RamenStall.mp4": "/alarm-clock/static/media/RamenStall.34a17702a698f6b3de8f.mp4",
+    "static/media/JapaneseLake.mp4": "/alarm-clock/static/media/JapaneseLake.c95c0897d4548720108b.mp4",
     "index.html": "/alarm-clock/index.html",
     "main.245e332b.css.map": "/alarm-clock/static/css/main.245e332b.css.map",
-    "main.fea07668.js.map": "/alarm-clock/static/js/main.fea07668.js.map",
+    "main.7a118d38.js.map": "/alarm-clock/static/js/main.7a118d38.js.map",
     "787.3de48938.chunk.js.map": "/alarm-clock/static/js/787.3de48938.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.245e332b.css",
-    "static/js/main.fea07668.js"
+    "static/js/main.7a118d38.js"
   ]
 }

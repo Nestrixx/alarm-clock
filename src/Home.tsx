@@ -1,9 +1,9 @@
-import BackgroundVideo from "./assets/BackgroundVideo.mp4";
-import CherryBG from "./assets/CherryBG.mp4";
-import ShoreBG from "./assets/ShoreBG.mp4";
-import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
-import JapaneseLake from "./assets/JapaneseLake.mp4";
-import RamenStall from "./assets/RamenStall.mp4";
+// import BackgroundVideo from "./assets/BackgroundVideo.mp4";
+// import CherryBG from "./assets/CherryBG.mp4";
+// import ShoreBG from "./assets/ShoreBG.mp4";
+// import SpaceCowboyBG from "./assets/SpaceCowboyBG.mp4";
+// import JapaneseLake from "./assets/JapaneseLake.mp4";
+// import RamenStall from "./assets/RamenStall.mp4";
 // import Ocean from "./assets/Ocean.webm";
 // import aurora from "./assets/aurora.mp4";
 // import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
@@ -20,12 +20,12 @@ const Home = () => {
   const { alarms }: AlarmContext = useContext(TimeContext);
 
   const backgroundVideos = [
-    BackgroundVideo,
-    CherryBG,
-    ShoreBG,
-    SpaceCowboyBG,
-    JapaneseLake,
-    RamenStall,
+    // BackgroundVideo,
+    // CherryBG,
+    // ShoreBG,
+    // SpaceCowboyBG,
+    // JapaneseLake,
+    // RamenStall,
     // Ocean,
     // aurora,
     // WaterSceneAzuma,

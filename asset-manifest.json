@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/alarm-clock/static/css/main.245e332b.css",
+    "main.js": "/alarm-clock/static/js/main.fea07668.js",
+    "static/js/787.3de48938.chunk.js": "/alarm-clock/static/js/787.3de48938.chunk.js",
+    "index.html": "/alarm-clock/index.html",
+    "main.245e332b.css.map": "/alarm-clock/static/css/main.245e332b.css.map",
+    "main.fea07668.js.map": "/alarm-clock/static/js/main.fea07668.js.map",
+    "787.3de48938.chunk.js.map": "/alarm-clock/static/js/787.3de48938.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.245e332b.css",
+    "static/js/main.fea07668.js"
+  ]
+}

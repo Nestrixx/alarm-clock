@@ -1,0 +1,26 @@
+.monica {
+    background-color: #2f3136;
+    height: 100vh;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alarm-checkbox {
+    display: flex;
+    align-items: baseline;
+}
+
+.time-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#repeat-checkbox-descriptor {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.alarms-submit-button {}

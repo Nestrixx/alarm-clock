@@ -8,7 +8,7 @@ import RamenStall from "./assets/RamenStall.mp4";
 // import aurora from "./assets/aurora.mp4";
 // import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
 // import LakeHouse from "./assets/LakeHouse.mp4";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { addMinutes, isWithinInterval } from "date-fns";
 import "./Home.css";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ import { AlarmContext } from "./types/AlarmContext";
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const { alarms }: AlarmContext = useContext(TimeContext);
+  const lofiVidRef = useRef();
 
   const backgroundVideos = [
     BackgroundVideo,
@@ -83,6 +84,7 @@ const Home = () => {
         // future lesson to use useRef to remove logo from youtube video cause yt sucks ass
         <div>
           <iframe
+          ref={lofiVidRef}
             className="lofiVideo"
             src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0&html5=1"
             title="YouTube video player"

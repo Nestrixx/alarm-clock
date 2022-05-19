@@ -5,16 +5,20 @@ import { AlarmContext } from "../types/AlarmContext.js";
 const AlarmList = () => {
   const { alarms }: AlarmContext = useContext(TimeContext);
 
-  return (
-    <ul>
-      <li>
-        hi
-        {/* needs logic go to render and not index a empty array */}
-        {/* {alarms[0].alarm}
-        {alarms[0].name} */}
-      </li>
-    </ul>
-  );
+  if (alarms.length > 0) {
+    return (
+      <ul>
+        {alarms.map((alarm) => (
+          <li key={alarm.name}>
+            {alarm.name}
+            {alarm.alarm}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return null;
 };
 
 export default AlarmList;

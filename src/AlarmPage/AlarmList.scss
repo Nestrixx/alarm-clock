@@ -1,0 +1,14 @@
+         .list-wrapper {
+             margin-top: 10%;
+         }
+         
+         #alarm-list {
+             display: flex;
+             margin-bottom: 1%;
+             align-items: center;
+             //  border: solid;
+             justify-content: center;
+             //  list-style-type: none;
+             color: var(--clr-neon);
+             text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.125em currentColor;
+         }

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/alarm-clock/static/css/main.190d0f01.css",
-    "main.js": "/alarm-clock/static/js/main.8951ed82.js",
+    "main.css": "/alarm-clock/static/css/main.99c8400a.css",
+    "main.js": "/alarm-clock/static/js/main.6b41626f.js",
     "static/js/787.3de48938.chunk.js": "/alarm-clock/static/js/787.3de48938.chunk.js",
     "static/media/BackgroundVideo.mp4": "/alarm-clock/static/media/BackgroundVideo.0d852f4d4fecae7c0504.mp4",
     "static/media/SpaceCowboyBG.mp4": "/alarm-clock/static/media/SpaceCowboyBG.1ee4224c4a81a377cb29.mp4",
@@ -10,12 +10,12 @@
     "static/media/RamenStall.mp4": "/alarm-clock/static/media/RamenStall.34a17702a698f6b3de8f.mp4",
     "static/media/JapaneseLake.mp4": "/alarm-clock/static/media/JapaneseLake.c95c0897d4548720108b.mp4",
     "index.html": "/alarm-clock/index.html",
-    "main.190d0f01.css.map": "/alarm-clock/static/css/main.190d0f01.css.map",
-    "main.8951ed82.js.map": "/alarm-clock/static/js/main.8951ed82.js.map",
+    "main.99c8400a.css.map": "/alarm-clock/static/css/main.99c8400a.css.map",
+    "main.6b41626f.js.map": "/alarm-clock/static/js/main.6b41626f.js.map",
     "787.3de48938.chunk.js.map": "/alarm-clock/static/js/787.3de48938.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.190d0f01.css",
-    "static/js/main.8951ed82.js"
+    "static/css/main.99c8400a.css",
+    "static/js/main.6b41626f.js"
   ]
 }

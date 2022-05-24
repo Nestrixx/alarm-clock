@@ -18,7 +18,6 @@ import { AlarmContext } from "./types/AlarmContext";
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const { alarms }: AlarmContext = useContext(TimeContext);
-  const lofiVidRef = useRef();
 
   const backgroundVideos = [
     BackgroundVideo,
@@ -67,33 +66,35 @@ const Home = () => {
     setTime(localeTime);
   };
 
+  // this is hard coded we need this to loop through the entire array
   const isAlarmTime = () => {
-    const alarmTimeDate = new Date(alarms[0].alarm);
-    const alarmEndTime = addMinutes(alarmTimeDate, 30);
+    if (alarms.length > 0) {
+      const isAlarmActive = alarms.find((alarm) => {
+        const alarmTimeDate = new Date(alarm.alarm);
+        const alarmEndTime = addMinutes(alarmTimeDate, 30);
+        const currentDate = new Date();
 
-    const currentDate = new Date();
+        return isWithinInterval(currentDate, {
+          start: alarmTimeDate,
+          end: alarmEndTime,
+        });
+      });
 
-    if (
-      alarms[0].alarm !== "" &&
-      isWithinInterval(currentDate, {
-        start: alarmTimeDate,
-        end: alarmEndTime,
-      })
-    ) {
-      return (
-        // future lesson to use useRef to remove logo from youtube video cause yt sucks ass
-        <div>
-          <iframe
-          ref={lofiVidRef}
-            className="lofiVideo"
-            src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0&html5=1"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      );
+      if (isAlarmActive) {
+        return (
+          // future lesson to use useRef to remove logo from youtube video cause yt sucks ass
+          <div>
+            <iframe
+              className="lofiVideo"
+              src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0&html5=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        );
+      }
     }
     return null;
   };
@@ -119,7 +120,7 @@ const Home = () => {
       >
         <source src={backgroundSource} type="video/mp4" />
       </video>
-      {alarms.length !== 0 ? isAlarmTime() : null}
+      {isAlarmTime()}
       <div className="time">{time}</div>
       <p>Tell Me, What Are The Words That Changed Your Life?</p>
       <Link to="/alarms" className="alarmsLink">

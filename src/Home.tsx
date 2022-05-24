@@ -8,12 +8,19 @@ import RamenStall from "./assets/RamenStall.mp4";
 // import aurora from "./assets/aurora.mp4";
 // import WaterSceneAzuma from "./assets/WaterSceneAzuma.mp4";
 // import LakeHouse from "./assets/LakeHouse.mp4";
-import { useState, useEffect, useContext, useRef } from "react";
-import { addMinutes, isWithinInterval } from "date-fns";
+import { useState, useEffect, useContext } from "react";
+import {
+  addMinutes,
+  getHours,
+  getMinutes,
+  isWithinInterval,
+  setMinutes,
+} from "date-fns";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { TimeContext } from "./TimeContext.js";
 import { AlarmContext } from "./types/AlarmContext";
+import { setHours } from "date-fns/esm";
 
 const Home = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -73,6 +80,13 @@ const Home = () => {
         const alarmTimeDate = new Date(alarm.alarm);
         const alarmEndTime = addMinutes(alarmTimeDate, 30);
         const currentDate = new Date();
+
+        if (alarm.isReoccurring) {
+          const reoccurringDateMinutes = getMinutes(alarmTimeDate);
+          const reoccurringDateHours = getHours(alarmTimeDate);
+          setMinutes(currentDate, reoccurringDateMinutes);
+          setHours(currentDate, reoccurringDateHours);
+        }
 
         return isWithinInterval(currentDate, {
           start: alarmTimeDate,

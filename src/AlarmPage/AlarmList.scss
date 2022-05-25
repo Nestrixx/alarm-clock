@@ -1,17 +1,17 @@
-         .total-list-wrapper {
-             display: flex;
-             justify-content: center;
-         }
-         
-         .ulist-wrapper {
-             margin: 0;
-             margin-top: 6rem;
-             list-style-type: none;
-             padding: 0;
-         }
-         
-         #alarm-list {
-             margin-bottom: 1%;
-             color: var(--clr-neon);
-             text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.125em currentColor;
-         }
+.total-list-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ulist-wrapper {
+    margin: 0;
+    margin-top: 6rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.alarm-list {
+    margin-bottom: 4px;
+    color: var(--clr-neon);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.125em currentColor;
+}

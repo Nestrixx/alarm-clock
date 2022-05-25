@@ -10,9 +10,9 @@ const AlarmList = () => {
   const deleteButtonHandler = (alarmIndex: number, alarmName: string) => {
     window.localStorage.removeItem(alarmName);
     setAlarms((oldAlarms) => {
-      const newAlarms = oldAlarms.filter((alarm) => {
+      const newAlarms = oldAlarms.filter((alarm, index) => {
         console.log(alarm.name);
-        return alarm.name !== oldAlarms[alarmIndex].name;
+        return index !== alarmIndex;
       });
       return newAlarms;
     });

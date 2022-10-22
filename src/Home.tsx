@@ -97,10 +97,11 @@ const Home = () => {
       if (isAlarmActive) {
         return (
           // future lesson to use useRef to remove logo from youtube video cause yt sucks ass
+
           <div>
             <iframe
               className="lofiVideo"
-              src="https://www.youtube.com/embed/DWcJFNfaw9c?autoplay=1&controls=0&html5=1"
+              src="https://www.youtube.com/embed/rUxyKA_-grg?autoplay=1&controls=0&html5=1"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
